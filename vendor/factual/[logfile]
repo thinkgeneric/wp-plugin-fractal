@@ -1,0 +1,21 @@
+PHP verison v5+                         Pass
+No classname conflicts                  Pass
+Parse INI File Function                 Pass
+SPL is loaded                           Pass
+curl is loaded                          Pass
+Creating Query object                   Pass
+Setting query parameter                 Pass
+API Connection                          Pass
+Limit/Filter/Sort                       Pass
+Unicode Filter                          Fail
+Punctuation                             Pass
+Quotes Test                             Pass
+'In' Filter                             Pass
+Multi Filter                            Pass
+Geo Search                              Pass
+Multi Country Search                    Pass
+Response URL                            Pass
+Request Table Name                      Pass
+Response Headers                        Pass
+Response Code                           Pass
+Total Row Count                         Pass
