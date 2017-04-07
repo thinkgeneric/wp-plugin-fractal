@@ -1,0 +1,11 @@
+{
+  "name": "thinkgeneric/wp-plugin-fractal",
+  "description": "Plugin that allows for importing business listings using the Fractal API.",
+  "type": "wordpress-plugin",
+  "require": {
+    "composer/installers": "1.0.*"
+  },
+  "extra": {
+    "installer-name": "fractal"
+  }
+}
