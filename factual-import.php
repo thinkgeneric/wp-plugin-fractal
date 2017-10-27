@@ -27,43 +27,35 @@
 
 
 // If this file is called directly, abort.
-use lib\Container;
-use lib\providers\ActionFilterControllerProvider;
-use lib\providers\FactualServiceProvider;
-use lib\providers\SettingsPageProvider;
+use Fractal\Container;
+use Fractal\providers\ActionFilterControllerProvider;
+use Fractal\providers\FactualServiceProvider;
+use Fractal\providers\SettingsPageProvider;
 
 if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if( ! function_exists( 'dd' ) ) {
-	function dd( $var, $die = true ) {
-		echo "<pre>";
-		var_dump( $var );
-		echo "</pre>";
-		if( $die )
-			die();
-	}
-}
+$factual_error = function( $message, $subtitle = '', $title = '' ) {
+	$title = $title ?: "TG Error";
+	$footer = "<a href='https://github.com/thinkgeneric/wp-plugin-fractal'>Fractal Documentation</a>";
+	$message = "<h1>$title</br><small>{$subtitle}</small></h1><p>{$message}</p><p>{$footer}</p>";
+	wp_die( $message, $title );
+};
 
-//todo move the CMB2 include stuff somewhere better
-if ( file_exists(  __DIR__ . '/vendor/cmb2/init.php' ) ) {
-	require_once  __DIR__ . '/vendor/cmb2/init.php';
-} elseif ( file_exists(  __DIR__ . '/vendor/CMB2/init.php' ) ) {
-	require_once  __DIR__ . '/vendor/CMB2/init.php';
+/**
+ * Make sure that we have Composer's dependencies installed. We will also use Composer
+ * as the autoloader for the whole theme. This means that for classes and packages to be used
+ * they must be fully namespaces, using PSR-4 standards.
+ */
+$composer = __DIR__ . '/vendor/autoload.php';
+if ( ! file_exists( $composer ) ) {
+	$factual_error(
+		"In order to use the Fractal plugin, please run <code>composer install</code> or <code>script/setup</code> in your terminal.",
+		"Composer Autoloader not found."
+	);
 }
-
-
-// Begin autoloading code
-spl_autoload_register( 'factual_import_autoloader' );
-function factual_import_autoloader( $class_name ) {
-//	dd($class_name);
-	if ( false !== strpos( $class_name, 'lib' ) ) {
-		$classes_dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR ;
-		$class_file = str_replace( '\\', DIRECTORY_SEPARATOR, $class_name ) . '.php';
-		require_once $classes_dir . $class_file;
-	}
-}
+require_once( $composer );
 
 /**
  * Begins execution of the plugin.
@@ -93,7 +85,6 @@ function factual_import_boot() {
 	{
 		$object = new $provider_class( $container );
 		$object->register();
-//    $object->boot();
 	}
 	$container->boot();
 }

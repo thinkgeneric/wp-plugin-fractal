@@ -1,7 +1,7 @@
 <?php
-namespace lib\Admin;
+namespace Fractal\Admin;
 
-use lib\controllers\ActionFilterController;
+use Fractal\controllers\ActionFilterController;
 
 class FactualImportPage extends Submenu {
 

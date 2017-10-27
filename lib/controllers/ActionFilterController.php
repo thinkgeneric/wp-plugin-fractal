@@ -1,5 +1,5 @@
 <?php
-namespace lib\controllers;
+namespace Fractal\controllers;
 
 class ActionFilterController {
 	protected $actions;

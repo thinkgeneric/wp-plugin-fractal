@@ -1,5 +1,5 @@
 <?php
-namespace lib;
+namespace Fractal;
 
 use ArrayAccess;
 use Closure;

@@ -1,7 +1,7 @@
 <?php
-namespace lib\providers;
+namespace Fractal\providers;
 
-use lib\ServiceProvider;
+use Fractal\ServiceProvider;
 
 class FactualServiceProvider extends ServiceProvider{
 	public function boot(){
