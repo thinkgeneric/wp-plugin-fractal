@@ -1,6 +1,6 @@
 <?php
 
-namespace lib\providers;
+namespace Fractal\providers;
 
 use lib\controllers\ActionFilterController;
 use lib\ServiceProvider;

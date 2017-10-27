@@ -1,7 +1,5 @@
 <?php
-namespace lib\Admin;
-
-use \Factual;
+namespace Fractal\Admin;
 
 class FactualImporter extends Importer {
 

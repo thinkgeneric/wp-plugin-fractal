@@ -1,5 +1,5 @@
 <?php
-namespace lib\Admin;
+namespace Fractal\Admin;
 
 
 abstract class Importer {

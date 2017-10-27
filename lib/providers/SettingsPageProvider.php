@@ -1,10 +1,10 @@
 <?php
 
-namespace lib\providers;
+namespace Fractal\providers;
 
-use lib\Admin\FactualImporter;
-use lib\Admin\FactualImportPage;
-use lib\ServiceProvider;
+use Fractal\Admin\FactualImporter;
+use Fractal\Admin\FactualImportPage;
+use Fractal\ServiceProvider;
 
 class SettingsPageProvider extends ServiceProvider{
 
